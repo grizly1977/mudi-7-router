@@ -5,6 +5,7 @@ Notes, docs, and configs for the GL.iNet **GL-E5800 / Mudi 7** — a 5G NR tri-b
 ## Contents
 
 - [`gl-e5800_user_manual_v4.8.3.pdf`](./gl-e5800_user_manual_v4.8.3.pdf) — official user manual (v4.8.3)
+- [`notes/esim-profiles.md`](./notes/esim-profiles.md) — how many eSIM profiles the device can store (researched answer)
 
 ## Useful links
 
