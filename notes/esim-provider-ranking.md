@@ -12,18 +12,25 @@ Mudi7-specific confirmation reports are thin for most providers. Entries below a
 labeled by evidence strength — don't read "Unconfirmed" entries as "doesn't work,"
 just as "no direct evidence found either way."
 
-| Rank | Provider | Confidence | Documented APN | Evidence |
-|---|---|---|---|---|
-| 1 | EIOTCLUB eSIM Store | High | Published per-plan; EIOTCLUB's own setup videos explicitly flag "enter the corresponding APN is the key" | GL.iNet's own first-party recommended store, built into eSIM Management; tested by GL.iNet staff (Hoff) |
-| 2 | Tuge eSIM Store | Medium-High | Not independently verified | GL.iNet's other official recommended store; no contrary reports found, less documentation than EIOTCLUB |
-| 3 | Ubigi | Medium-High | Industry-known for a fixed, published APN aimed at router/IoT use (commonly `data.ubigi.com`) — **verify against Ubigi's current docs, not independently re-confirmed this pass** | On GL.iNet's official compatibility table, tested by GL.iNet staff directly; no Mudi7-specific failure found |
-| 4 | GL.iNet's own eSIM plans (shop.gloableconnect.com) | Medium | First-party, should be pre-validated for this device | Confirmed to exist via independent review (rvmobileinternet.com); capped at 2GB, "quite expensive" per that review |
-| 5 | Airalo | Medium — mixed evidence | Publishes per-country APNs in-app | Popular/generally reliable; but one real Mudi7 user reported failure despite claiming correct APN — unresolved |
-| 6 | T-Mobile (via "Prepaid eSIM" app) | Medium | Not independently confirmed | On GL.iNet's official table (general); no contrary report, but no Mudi7-specific confirmation either |
-| 7 | Vodafone (IE/IT/DE/Czech) | Low-Medium | Not independently confirmed | On GL.iNet's official table; same caveat — table's primary scope is physical eSIM cards, not confirmed for the built-in chip specifically |
-| 8 | US Mobile | Low | Unknown | Failed for one real Mudi7 user in the same session where 3 other sources also failed — could be device-state issue rather than provider; no successful counter-report either |
-| 9 | RedTeaGo | Low | N/A | **Actively falsified**: listed on GL.iNet's official table, but confirmed failing by a real user *and* GL.iNet support's own remote test |
-| 10 | Nomad / Saily / Holafly / other general travel-eSIM brands | Unconfirmed | Unknown | No Mudi7/GL-E5800-specific reports found — inferred only from general reputation |
+| Rank | Provider | Store Link | Confidence | Documented APN | Evidence |
+|---|---|---|---|---|---|
+| 1 | EIOTCLUB eSIM Store | [eiotclub.com/pages/esim](https://www.eiotclub.com/pages/esim) | High | Published per-plan; EIOTCLUB's own setup videos explicitly flag "enter the corresponding APN is the key" | GL.iNet's own first-party recommended store, built into eSIM Management; tested by GL.iNet staff (Hoff) |
+| 2 | Tuge eSIM Store | [esim_store.gl-inet.com](https://esim_store.gl-inet.com/) | Medium-High | Not independently verified | GL.iNet's other official recommended store; no contrary reports found, less documentation than EIOTCLUB |
+| 3 | Ubigi | [cellulardata.ubigi.com](https://cellulardata.ubigi.com/) | Medium-High | Industry-known for a fixed, published APN aimed at router/IoT use (commonly `data.ubigi.com`) — **verify against Ubigi's current docs, not independently re-confirmed this pass** | On GL.iNet's official compatibility table, tested by GL.iNet staff directly; no Mudi7-specific failure found |
+| 4 | GL.iNet's own eSIM plans | [shop.gloableconnect.com/esim](https://shop.gloableconnect.com/esim/#/pages/index/index?channelCode=GLesim) | Medium | First-party, should be pre-validated for this device | Confirmed to exist via independent review (rvmobileinternet.com); capped at 2GB, "quite expensive" per that review |
+| 5 | Airalo | [airalo.com](https://www.airalo.com/) | Medium — mixed evidence | Publishes per-country APNs in-app | Popular/generally reliable; but one real Mudi7 user reported failure despite claiming correct APN — unresolved |
+| 6 | T-Mobile | via "Prepaid eSIM" app (no direct web store found) | Medium | Not independently confirmed | On GL.iNet's official table (general); no contrary report, but no Mudi7-specific confirmation either |
+| 7 | Vodafone Ireland (also IT/DE/Czech variants) | [n.vodafone.ie/shop/pay-as-you-go-plans.html](https://n.vodafone.ie/shop/pay-as-you-go-plans.html) | Low-Medium | Not independently confirmed | On GL.iNet's official table (link found only for the Ireland variant); same caveat — table's primary scope is physical eSIM cards, not confirmed for the built-in chip specifically |
+| 8 | US Mobile | [usmobile.com/esim](https://www.usmobile.com/esim) | Low | Unknown | Failed for one real Mudi7 user in the same session where 3 other sources also failed — could be device-state issue rather than provider; no successful counter-report either |
+| 9 | RedTeaGo | [esim.redteago.com](https://esim.redteago.com/) | Low | N/A | **Actively falsified**: listed on GL.iNet's official table, but confirmed failing by a real user *and* GL.iNet support's own remote test |
+| 10 | Nomad / Saily | [getnomad.app](https://www.getnomad.app/) / [saily.com](https://saily.com/) | Unconfirmed | Unknown | No Mudi7/GL-E5800-specific reports found — inferred only from general reputation |
+
+### Do not bother: Holafly
+
+[esim.holafly.com](https://esim.holafly.com/) — **not a recommendation**. GL.iNet's own
+compatibility table update (2025-12-10) states Holafly (and Orange) were tested and found
+**incompatible**, then removed from their supported list entirely. This is a stronger
+negative signal than anything in the "Unconfirmed" row above — skip it for this device.
 
 ## The one rule that actually matters
 
