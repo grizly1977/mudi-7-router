@@ -5,12 +5,21 @@ launched ~Jan–May 2026, so the sample of real-world reports is still small).
 
 ## Bottom line
 
-**No.** Every independent failure report found spans a *different* provider (and even
-physical SIMs from local carriers), all with the identical symptom: SIM/eSIM reads fine,
-network is visible on a manual scan, but data registration never completes ("SIM not
-registered" / "cannot connect"). That pattern points at a modem/firmware issue on the
-device itself, not any one provider being bad — so a ranked "these providers are 100%"
-list doesn't meaningfully exist yet for this device.
+**No** — but the practical answer turned out simpler than expected. Every independent
+failure report found spans a *different* provider (and even physical SIMs from local
+carriers), all with the identical symptom: SIM/eSIM reads fine, network is visible on a
+manual scan, but data registration never completes ("SIM not registered" / "cannot
+connect"). Some of those users explicitly say they already double-checked the APN was
+correct — so their cases remain genuinely unresolved / possibly device-level.
+
+**Update (2026-07-26, confirmed on this repo's own device):** in our own case, every
+single connectivity failure — across multiple attempts — turned out to be APN, full
+stop. Once the correct APN was set, everything worked, including a connection that had
+previously shown a hard network-level registration denial. See
+[esim-troubleshooting.md](./esim-troubleshooting.md) for the log evidence. **APN
+misconfiguration should be assumed and ruled out first**, before concluding a provider
+is incompatible with this device — it's cheap to check and, per our case, was the whole
+story.
 
 ## Confirmed failure reports (real users, GL.iNet forum)
 
@@ -47,14 +56,15 @@ Given by GL.iNet staff (Cathy) in response to the 4-provider failure report:
 No confirmation yet in these threads that this fix actually resolved the reported cases —
 worth trying, but not a guaranteed fix.
 
-## Practical strategy given the uncertainty
+## Practical strategy
 
-1. Buy the smallest/cheapest data package from a candidate provider to test compatibility
+1. **Check APN first, always.** Look up the exact APN the provider's own phone-app
+   instructions specify for that plan, and set it manually — don't trust auto-detection.
+   Confirmed to resolve 100% of the failures hit on this device so far.
+2. Buy the smallest/cheapest data package from a candidate provider to test compatibility
    before committing to a full plan — independently suggested by multiple affected users.
-2. Look up the exact APN the provider's own phone-app instructions specify, and set it
-   manually rather than trusting auto-detection.
-3. If registration fails, try the TTL=64 + IMS-disable sequence above before concluding the
-   provider itself is incompatible.
+3. If registration still fails after correcting the APN, try the TTL=64 + IMS-disable
+   sequence above before concluding the provider itself is incompatible.
 
 ## Sources
 

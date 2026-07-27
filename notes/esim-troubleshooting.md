@@ -4,6 +4,12 @@ Real diagnoses from this device's own logs (`eSIM Log.txt`, modem debug JSON exp
 2026-07-23 to 2026-07-26. Two distinct failure modes were hit and diagnosed — worth
 telling apart, since the fix is different for each.
 
+**Confirmed resolution (2026-07-26): the fix was APN, full stop.** Once the correct APN
+(`plus`, not the reseller's default `global.telcoequity`) was set, everything worked —
+including the connection that previously showed a hard registration denial. **APN is the
+first thing to check on any Mudi 7 connectivity failure, before assuming device/firmware
+or provider incompatibility.**
+
 ## Failure mode 1: profile installs but won't *enable*
 
 Symptom: eSIM profile downloads and installs fine (`IPA_DL_10 end.err: 0`), but the
@@ -25,6 +31,12 @@ steps: firmware update check (System > Upgrade), full power cycle (not just the
 automatic 5s modem-only reboot the eSIM daemon already tries), and exporting the log
 to support@gl-inet.com — GL.iNet staff have repeatedly asked for this exact log export
 in similar threads.
+
+Note: in our case this happened on profiles that were later abandoned in favor of a
+different, correctly-provisioned profile — once that one was used with the right APN,
+no further enable failures occurred. Not confirmed whether this specific error was
+itself APN-related (it happens before network attach, at the eUICC level) or was a
+separate, no-longer-reproducible issue.
 
 ## Failure mode 2: profile enables fine, but network registration is denied
 
@@ -61,3 +73,10 @@ wrong-APN problem, not a genuine carrier/device incompatibility.
   `esm_cause` / registration-denied after the profile is already enabled → failure mode 2
   (likely APN, possibly also region/roaming coverage — see
   [esim-provider-reliability.md](./esim-provider-reliability.md) for the wider pattern).
+
+## Recommended first step, always
+
+Before digging into logs at all: go to **Cellular > SIM Card Settings** and manually set
+the APN to whatever your eSIM provider's own phone-app instructions specify for that
+exact plan — do not trust what the router auto-detects/pre-fills. This alone resolved
+every connectivity failure hit in this device's history so far.
